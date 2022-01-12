@@ -109,18 +109,21 @@ const PrecipForm = ({}) => {
   const [data, handleInputs, clearData] = SurveyDataHandler(PRECIP_DATA)
   const [तालिका_पहिचान, set_तालिका_पहिचान] = useState<string | undefined>(undefined);
   const [myData, setMyData] = useState([])
+  const [getTable, setTable] = useState(false)
+  //const [my_$ग्राहक, setmy_$ग्राहक] = useState(new ग्राहक());
 
   const tablePointer = async () => {
     await my_$ग्राहक.तालिका_पहिचान_पछ्याउनुहोस((तालिका_पहिचान?: string) =>
       {
+        setTable(true)
         set_तालिका_पहिचान(तालिका_पहिचान)
     });
-    const मारो_डाता_बिर्सनुहोस् = await my_$ग्राहक.मारो_डाता_पछ्याउनुहोस्(
-      (डाताहरु: valid.élémentDonnées<S4W_डाता>[]) =>  {
-        setMyData(डाताहरु)
-        //डाताहरु = डाताहरु
-      }
-    );
+    // const मारो_डाता_बिर्सनुहोस् = await my_$ग्राहक.मारो_डाता_पछ्याउनुहोस्(
+    //   (डाताहरु: valid.élémentDonnées<S4W_डाता>[]) =>  {
+    //     setMyData(डाताहरु)
+    //     //डाताहरु = डाताहरु
+    //   }
+    // );
   };
   useEffect(()=>{
     tablePointer()
@@ -128,7 +131,6 @@ const PrecipForm = ({}) => {
 
 
   const handleSubmit = async () => {
-    console.log(data);
     //if (!undefined) throw new Error("Not connected with Database.")
     await my_$ग्राहक.डाता_थप्नुहोस्(
       तालिका_पहिचान,
@@ -143,7 +145,6 @@ const PrecipForm = ({}) => {
     clearData()
     //actually this await is not required. We could simply add new data into the list.s
   }
-  debugger
   return (
     <div>
       <Grid container direction={'column'} spacing={2}>
@@ -203,7 +204,7 @@ const PrecipForm = ({}) => {
           </Button>
         </Grid>
       </Grid>
-      {myData.length && <ListData data={myData}/>}
+      {getTable && <ListData data={myData} grahak={my_$ग्राहक}/>}
     </div>
   );
 }

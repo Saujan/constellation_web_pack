@@ -23,18 +23,29 @@ type rawData = {
 
 type Props = {
   data: rawData[];
+  grahak: ग्राहक
 };
 
 const ListData = (props: Props) => {
   const [तालिका_पहिचान, set_तालिका_पहिचान] = useState<string | undefined>(undefined);
   const [myData, setMyData] = useState([])
 
+  const tablePointers = async () => {
+    const मारो_डाता_बिर्सनुहोस् = await props.grahak.मारो_डाता_पछ्याउनुहोस्(
+      (डाताहरु: valid.élémentDonnées<S4W_डाता>[]) =>  {
+        debugger
+        setMyData(डाताहरु)
+        //डाताहरु = डाताहरु
+      }
+    );
+  };
+
   useEffect(() =>{
-    //tablePointer();
+    tablePointers();
   },[])
 
   return (
-    <BasicTable data={props.data}/>
+    <BasicTable data={myData}/>
   );
 }
 
