@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -54,6 +54,7 @@ export const देशान्तर_स्तम्भ_पहिचान = "�
 export const उचाई_स्तम्भ_पहिचान = "उचाई";
 export const temp_स्तम्भ_पहिचान = "temp"; // Why adding स्तम्भ_पहिचान ? Is it compulsory ? Or just Convention ?
 
+import { DatabaseContext } from "../../context/databaseContext";
 
 // export const डाता_संरचना: réseau.schémaBd = {
 //   motsClefs: [S4W_कुञ्जी_शब्द],
@@ -103,18 +104,19 @@ const PRECIP_DATA = {
   temp: null as string
 };
 
-const my_$ग्राहक = new ग्राहक();
+//const my_$ग्राहक = new ग्राहक();
 
 const PrecipForm = ({}) => {
+  const { my_ग्राहक } = useContext(DatabaseContext);
   const [data, handleInputs, clearData] = SurveyDataHandler(PRECIP_DATA)
   const [तालिका_पहिचान, set_तालिका_पहिचान] = useState<string | undefined>(undefined);
-  const [myData, setMyData] = useState([])
   const [getTable, setTable] = useState(false)
-  //const [my_$ग्राहक, setmy_$ग्राहक] = useState(new ग्राहक());
 
   const tablePointer = async () => {
-    await my_$ग्राहक.तालिका_पहिचान_पछ्याउनुहोस((तालिका_पहिचान?: string) =>
+    debugger
+    await my_ग्राहक.तालिका_पहिचान_पछ्याउनुहोस((तालिका_पहिचान?: string) =>
       {
+        debugger
         setTable(true)
         set_तालिका_पहिचान(तालिका_पहिचान)
     });
@@ -132,7 +134,7 @@ const PrecipForm = ({}) => {
 
   const handleSubmit = async () => {
     //if (!undefined) throw new Error("Not connected with Database.")
-    await my_$ग्राहक.डाता_थप्नुहोस्(
+    await my_ग्राहक.डाता_थप्नुहोस्(
       तालिका_पहिचान,
       new Date(),
       //चित्र,
@@ -204,7 +206,7 @@ const PrecipForm = ({}) => {
           </Button>
         </Grid>
       </Grid>
-      {getTable && <ListData data={myData} grahak={my_$ग्राहक}/>}
+
     </div>
   );
 }

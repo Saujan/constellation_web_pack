@@ -12,7 +12,6 @@ const SurveyDataHandler = (initialData: dataProps): [dataProps, (id: string, val
   const [data, setData] = useState<dataProps>(initialData);
 
   const handleInputs = (id: string, value: string)=> {
-    console.log(id);
     setData((prevState) => ({
       ...prevState,
       [id]: value
@@ -20,7 +19,6 @@ const SurveyDataHandler = (initialData: dataProps): [dataProps, (id: string, val
   }
 
   const clearData = () => {
-    debugger
     setData({precip: null, lat: null, long: null, alti: null, temp:null})
   }
   return [data, handleInputs, clearData];

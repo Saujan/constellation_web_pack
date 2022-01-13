@@ -6,10 +6,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import SelectForm from './components/surveys/selectForm';
-import NavBar from './components/navBar'
+//import NavBar from './components/navBar'
+import Dashboard from './components/dashboard'
 //return <SelectForm/>;
 
 ReactDOM.render(
-  <NavBar/>,
+  <Dashboard/>,
   document.getElementsByTagName('body')[0]
 );

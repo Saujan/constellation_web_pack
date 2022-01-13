@@ -26,7 +26,7 @@ import PrecipForm from './surveys/precipForm';
 import GroundWaterForm from './surveys/groundWaterForm';
 import CustomSelect from './surveys/selectForm';
 import ListData from './general/listData';
-
+import DataTable from './general/dataTable';
 
 const drawerWidth = 240;
 
@@ -115,67 +115,68 @@ export default function MiniDrawer() {
   const handleClick = (selectedValue: string) => {
     setAction(selectedValue)
   }
+
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Nepal Constellation
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: '36px',
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Nepal Constellation
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            <ListItem button key={'Add'} onClick={(e) => handleClick('add')}>
+                <ListItemIcon>
+                  <AddBoxIcon/>
+                </ListItemIcon>
+                <ListItemText primary={'Add'} />
+              </ListItem>
+              <ListItem button key={'List'} onClick={(e) => handleClick('list')}>
+                <ListItemIcon>
+                  <ListIcon/>
+                </ListItemIcon>
+                <ListItemText primary={'List'} />
+              </ListItem>
+          </List>
+          {/* <Divider />
+          <List>
+            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List> */}
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+            {action == 'add' && <CustomSelect/> || <DataTable/>}
+          <Typography paragraph>
           </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          <ListItem button key={'Add'} onClick={(e) => handleClick('add')}>
-              <ListItemIcon>
-                <AddBoxIcon/>
-              </ListItemIcon>
-              <ListItemText primary={'Add'} />
-            </ListItem>
-            <ListItem button key={'List'} onClick={(e) => handleClick('list')}>
-              <ListItemIcon>
-                <ListIcon/>
-              </ListItemIcon>
-              <ListItemText primary={'List'} />
-            </ListItem>
-        </List>
-        {/* <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-          <CustomSelect/>
-        <Typography paragraph>
-        </Typography>
+        </Box>
       </Box>
-    </Box>
   );
 }

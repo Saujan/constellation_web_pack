@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { valid } from "@constl/ipa";
 import PrecipForm from "./precipForm";
 import GroundWaterForm from "./groundWaterForm";
 
 import CustomSelect from "../customSelect"
-import BasicTable from '../general/generalTable';
-import ग्राहक from "../केन्दीय-पानिकोलागिदूर्भाषहरु";
-import {S4W_डाता} from "../केन्दीय-पानिकोलागिदूर्भाषहरु";
 
-const my_$ग्राहक = new ग्राहक();
 
 const SURVEYS = [
   {value: 'precip', name: 'Precip'},
@@ -31,25 +26,8 @@ const GROUND_WATER_DATA = {
 const SelectForm = ({}) => {
   //const yy = new ग्राहक();
   const [selectedForm, selectForm] = useState(SURVEYS[0].value)
-  const [तालिका_पहिचान, set_तालिका_पहिचान] = useState<string | undefined>(undefined);
-  const [myData, setMyData] = useState([])
-
-  // const tablePointer = async () => {
-  //   await my_$ग्राहक.तालिका_पहिचान_पछ्याउनुहोस((तालिका_पहिचान?: string) =>
-  //     {
-  //       set_तालिका_पहिचान(तालिका_पहिचान)
-  //   });
-
-  //   const मारो_डाता_बिर्सनुहोस् = await my_$ग्राहक.मारो_डाता_पछ्याउनुहोस्(
-  //     (data: valid.élémentDonnées<S4W_डाता>[]) =>  {
-  //       debugger
-  //       setMyData(data)
-  //     }
-  //   );
-  // };
 
   useEffect(()=>{
-    //tablePointer()
   },[]);
 
   const onChangeHandler = (id: string, value: string) => {
