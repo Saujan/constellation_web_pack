@@ -11,6 +11,7 @@ const DataTable = () => {
   const [myData, setMyData] = useState([])
 
   const tablePointers = async () => {
+    debugger
     const मारो_डाता_बिर्सनुहोस् = await my_ग्राहक.मारो_डाता_पछ्याउनुहोस्(
       (डाताहरु: valid.élémentDonnées<S4W_डाता>[]) =>  {
         setMyData(डाताहरु)
