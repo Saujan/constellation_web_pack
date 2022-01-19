@@ -49,6 +49,7 @@ const PrecipForm = ({}) => {
       Number.parseFloat(data.temp)
     );
     clearData()
+    alert('Data is submitted. Please check in list.')
     //actually this await is not required. We could simply add new data into the list.s
   }
   return (
