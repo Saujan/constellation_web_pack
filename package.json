@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.65.0",
@@ -29,6 +30,7 @@
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "constants-browserify": "^1.0.0",
+    "ennikkai": "^1.2.7",
     "path": "^0.12.7",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",

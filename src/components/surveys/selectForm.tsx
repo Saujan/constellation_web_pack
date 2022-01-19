@@ -7,8 +7,8 @@ import CustomSelect from "../customSelect"
 
 
 const SURVEYS = [
-  {value: 'precip', name: 'Precip'},
-  {value: 'ground_water', name: 'Ground Water(Under Construction)'},
+  {value: 'precip', name: 'वर्षा'},
+  {value: 'ground_water', name: 'भूमिगत पानी (प्रगति हुदैछ)'},
 ]
 
 const GROUND_WATER_DATA = {
@@ -47,7 +47,7 @@ const SelectForm = ({}) => {
       <CustomSelect
         id='survey'
         name='survey'
-        dropDownName= 'Select Form'
+        dropDownName= 'विकल्प चयन गर्नुहोस्'
         value={selectedForm}
         menuItems={SURVEYS}
         onChangeHandler={onChangeHandler}

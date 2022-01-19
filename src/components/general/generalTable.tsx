@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,6 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { உரைக்கு as शोमार } from 'ennikkai';
 
 type rowData = {
   id: string,
@@ -29,17 +29,17 @@ type Props = {
 export default function BasicTable(props: Props) {
 
   const tableHeader = () => {
-    const headers = ['Id', 'मिति', 'वर्षा', 'अकांश', 'देशान्तर', 'उचाई', 'temp']
+    const headers = ['Id', 'मिति', 'वर्षा', 'अकांश', 'देशान्तर', 'उचाई', 'तापमान']
     const cells = headers.map((header)=>{
       return <TableCell align="right">{header}</TableCell>;
     })
-    return <TableHead><TableRow>{cells}</TableRow></TableHead>;
+    return <TableHead><TableRow key="0">{cells}</TableRow></TableHead>;
   }
 
   const tableBody = () => {
-    const body = props.data.map((row,index) => (
+    const body = props.data.map((row) => (
         <TableRow
-          key={index}
+          key={row.données.id}
           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         >
           <TableCell component="th" scope="row">
@@ -47,11 +47,11 @@ export default function BasicTable(props: Props) {
           </TableCell>
 
           <TableCell align="right">{new Date(row.données.मिति).toLocaleDateString("hi-NE-u-nu-deva-ca-indian")}</TableCell>
-          <TableCell align="right">{row.données.वर्षा}</TableCell>
-          <TableCell align="right">{row.données.अकांश}</TableCell>
-          <TableCell align="right">{row.données.देशान्तर}</TableCell>
-          <TableCell align="right">{row.données.उचाई}</TableCell>
-          <TableCell align="right">{row.données.temp}</TableCell>
+          <TableCell align="right">{शोमार(row.données.वर्षा, "देवनागरी")}</TableCell>
+          <TableCell align="right">{शोमार(row.données.अकांश, "देवनागरी")}</TableCell>
+          <TableCell align="right">{शोमार(row.données.देशान्तर, "देवनागरी")}</TableCell>
+          <TableCell align="right">{शोमार(row.données.उचाई, "देवनागरी")}</TableCell>
+          <TableCell align="right">{शोमार(row.données.temp, "देवनागरी")}</TableCell>
         </TableRow>
       ))
     return body;

@@ -4,7 +4,7 @@ import { client } from "@constl/ipa";
 import { valid } from "@constl/ipa";
 import { réseau } from "@constl/ipa";
 
-import { डाता_संरचना } from "./डाता_संरचना";
+import { मौसम_डाता_संरचना } from "./डाता_संरचना";
 
 import {
   मिति_स्तम्भ_पहिचान,
@@ -15,7 +15,7 @@ import {
   उचाई_स्तम्भ_पहिचान,
   S4W_तालिका_अद्वितीय_कुञ्जी_शब्द,
   S4W_कुञ्जी_शब्द,
-  temp_स्तम्भ_पहिचान
+  तापमान_स्तम्भ_पहिचान
 } from "./विन्यास";
 
 export type S4W_डाता = {
@@ -25,7 +25,7 @@ export type S4W_डाता = {
   [अकांश_स्तम्भ_पहिचान]: number;
   [देशान्तर_स्तम्भ_पहिचान]: number;
   [उचाई_स्तम्भ_पहिचान]: number;
-  [temp_स्तम्भ_पहिचान]: number;
+  [तापमान_स्तम्भ_पहिचान]: number;
 };
 
 export default class ग्राहक {
@@ -36,11 +36,11 @@ export default class ग्राहक {
     this.तारामंडल = proxy.ipa.default(मूल_खाता_पहिचान);
   }
 
-  async तालिका_पहिचान_पछ्याउनुहोस(
+  async मौसम_तालिका_पहिचान_पछ्याउनुहोस(
     पछ्याउँवाला_फलन: client.schémaFonctionSuivi<string | undefined>
   ): Promise<client.schémaFonctionOublier> {
     const yy = await this.तारामंडल.bds!.suivreTableauUniqueDeBdUnique(
-      डाता_संरचना,
+      मौसम_डाता_संरचना,
       S4W_कुञ्जी_शब्द,
       S4W_तालिका_अद्वितीय_कुञ्जी_शब्द,
       पछ्याउँवाला_फलन
@@ -48,7 +48,7 @@ export default class ग्राहक {
     return yy;
   }
 
-  async डाता_थप्नुहोस्(
+  async मौसम_डाता_थप्नुहोस्(
     तालिका_पहिचान: string,
     मिति: Date,
     //चित्र: File,
@@ -56,7 +56,7 @@ export default class ग्राहक {
     अकांश: number,
     देशान्तर: number,
     उचाई: number,
-    temp: number
+    तापमान: number
   ): Promise<void> {
     //const चित्र_पहिचान = await this.तारामंडल.ajouterÀSFIP(चित्र);
 
@@ -70,7 +70,7 @@ export default class ग्राहक {
       [अकांश_स्तम्भ_पहिचान]: अकांश,
       [देशान्तर_स्तम्भ_पहिचान]: देशान्तर,
       [उचाई_स्तम्भ_पहिचान]: उचाई,
-      [temp_स्तम्भ_पहिचान]: temp
+      [तापमान_स्तम्भ_पहिचान]: तापमान
     };
     await this.तारामंडल.tableaux!.ajouterÉlément(तालिका_पहिचान, नयाँ);
   }
@@ -78,7 +78,7 @@ export default class ग्राहक {
   async डाता_मेटाउनुहोस्(रेखा: string): Promise<void> {
     const तालिका_पहिचान = await client.uneFois(
       async (फ: client.schémaFonctionSuivi<string | undefined>) => {
-        return await this.तालिका_पहिचान_पछ्याउनुहोस(फ);
+        return await this.मौसम_तालिका_पहिचान_पछ्याउनुहोस(फ);
       }
     );
     if (तालिका_पहिचान) {
@@ -105,7 +105,7 @@ export default class ग्राहक {
         );
       }
     };
-    const तालिका_पहिचान_बिर्सनुुहोस् = await this.तालिका_पहिचान_पछ्याउनुहोस(
+    const तालिका_पहिचान_बिर्सनुुहोस् = await this.मौसम_तालिका_पहिचान_पछ्याउनुहोस(
       तालिका_पछ्याउँवाला_फलन
     );
     return () => {

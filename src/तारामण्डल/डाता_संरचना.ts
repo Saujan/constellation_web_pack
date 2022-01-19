@@ -15,11 +15,11 @@ import {
   उचाई_स्तम्भ_पहिचान,
   S4W_कुञ्जी_शब्द,
   S4W_तालिका_अद्वितीय_कुञ्जी_शब्द,
-  temp_चर_पहिचान,
-  temp_स्तम्भ_पहिचान,
+  तापमान_चर_पहिचान,
+  तापमान_स्तम्भ_पहिचान,
 } from "./विन्यास";
 
-export const डाता_संरचना: réseau.schémaBd = {
+export const मौसम_डाता_संरचना: réseau.schémaBd = {
   motsClefs: [S4W_कुञ्जी_शब्द],
   licence: "ODbl-1_0", //त्यो तपाईँलाई जस्तो मन पर्छ
   tableaux: [
@@ -51,8 +51,8 @@ export const डाता_संरचना: réseau.schémaBd = {
           idColonne: उचाई_स्तम्भ_पहिचान,
         },
         {
-          idVariable: temp_चर_पहिचान,
-          idColonne: temp_स्तम्भ_पहिचान
+          idVariable: तापमान_चर_पहिचान,
+          idColonne: तापमान_स्तम्भ_पहिचान
         }
       ],
     },
