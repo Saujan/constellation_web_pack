@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 
 import { valid } from "@constl/ipa";
-import ग्राहक from "../केन्दीय-पानिकोलागिदूर्भाषहरु";
-import {S4W_डाता} from "../केन्दीय-पानिकोलागिदूर्भाषहरु";
+import ग्राहक from "../../तारामण्डल/केन्दीय-पानिकोलागिदूर्भाषहरु";
+import {S4W_डाता} from "../../तारामण्डल/केन्दीय-पानिकोलागिदूर्भाषहरु";
 import BasicTable from "./generalTable"
 import { DatabaseContext } from "../../context/databaseContext";
 
@@ -27,15 +27,14 @@ type Props = {
 };
 
 const ListData = (props: Props) => {
-  const { my_ग्राहक } = useContext(DatabaseContext);
+  const { मारो_ग्राहक } = useContext(DatabaseContext);
   const [myData, setMyData] = useState([])
 
   const tablePointers = async () => {
-    const मारो_डाता_बिर्सनुहोस् = await my_ग्राहक.मारो_डाता_पछ्याउनुहोस्(
+    const मारो_डाता_बिर्सनुहोस् = await मारो_ग्राहक.मारो_डाता_पछ्याउनुहोस्(
       (डाताहरु: valid.élémentDonnées<S4W_डाता>[]) =>  {
         debugger
         setMyData(डाताहरु)
-        //डाताहरु = डाताहरु
       }
     );
   };

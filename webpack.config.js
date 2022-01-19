@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins:[
     new HtmlWebPackPlugin({
-      title: 'Sample',
+      title: 'तारामण्डल नेपाल',
       filename: 'index.html',
     }),
     new webpack.ProvidePlugin({

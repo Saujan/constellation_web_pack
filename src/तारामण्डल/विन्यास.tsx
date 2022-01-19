@@ -15,7 +15,7 @@ export const देशान्तर_चर_पहिचान =
   "/orbitdb/zdpuAzCrZnQXzLm13nnGe5VXQkxqZPcYdCgvGdox9tH1BZGmi/9cdfc65e-4c5e-41d3-9970-ce1937be1b52";
 export const उचाई_चर_पहिचान =
   "/orbitdb/zdpuB2RbnpNQpASXpDTf4s2TNtUVMBTvaXr4dqzLmmjeP7mP5/a0737ba8-153c-48fc-92d6-42c4aaa6a957";
-export const temp_चर_पहिचान =
+export const तापमान_चर_पहिचान =
   "/orbitdb/zdpuAvXULWKhmXGChfg39qRmaaqxbynHXkbe9vtNYNoGy6upt/d236f721-ca55-4b8b-95c7-345fcf520962"; //Note: provided from constellation web app
 export const बर्स_चर_पहिचान= '/orbitdb/zdpuAmKN8zCSUDBPZgsfh66qv3PgYWt8rYoxs5LRYZJ9HWCg1/3a472ed1-473e-4555-beeb-c52fdd687d97'
 
@@ -31,4 +31,4 @@ export const वर्षा_स्तम्भ_पहिचान = "वर्�
 export const अकांश_स्तम्भ_पहिचान = "अकांश";
 export const देशान्तर_स्तम्भ_पहिचान = "देशान्तर";
 export const उचाई_स्तम्भ_पहिचान = "उचाई";
-export const temp_स्तम्भ_पहिचान = "temp"; // Why adding स्तम्भ_पहिचान ? Is it compulsory ? Or just Convention ?
+export const तापमान_स्तम्भ_पहिचान = "temp"; // Why adding स्तम्भ_पहिचान ? Is it compulsory ? Or just Convention ?

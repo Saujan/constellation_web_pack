@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -16,16 +15,10 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import AddBox from '@mui/icons-material/Add';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ListIcon from '@mui/icons-material/List';
 
-import PrecipForm from './surveys/precipForm';
-import GroundWaterForm from './surveys/groundWaterForm';
 import CustomSelect from './surveys/selectForm';
-import ListData from './general/listData';
 import DataTable from './general/dataTable';
 
 const drawerWidth = 240;
@@ -134,7 +127,7 @@ export default function MiniDrawer() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              Nepal Constellation
+              तारामण्डल नेपाल
             </Typography>
           </Toolbar>
         </AppBar>
@@ -146,30 +139,20 @@ export default function MiniDrawer() {
           </DrawerHeader>
           <Divider />
           <List>
-            <ListItem button key={'Add'} onClick={(e) => handleClick('add')}>
+            <ListItem button key={'Add'} onClick={() => handleClick('add')}>
                 <ListItemIcon>
                   <AddBoxIcon/>
                 </ListItemIcon>
-                <ListItemText primary={'Add'} />
+                <ListItemText primary={'थप्नुहोस्'} />
               </ListItem>
-              <ListItem button key={'List'} onClick={(e) => handleClick('list')}>
+              <ListItem button key={'List'} onClick={() => handleClick('list')}>
                 <ListItemIcon>
                   <ListIcon/>
                 </ListItemIcon>
-                <ListItemText primary={'List'} />
+                <ListItemText primary={'सबै'} />
               </ListItem>
           </List>
-          {/* <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List> */}
+
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
